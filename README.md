@@ -3,7 +3,7 @@
 </p>
 
 ## What? 🤔
-It is not a custom TabLayout or RecyclerView. It is just a helper library to attach to your RecyclerView with your TabLayout. If you don't want to go with sticker header RecyclerView or something like that, and also want to provide a good experience when user scrolling, this small library is for you.
+It is not a custom `TabLayout` or `RecyclerView`. It is just a helper library to attach to your `RecyclerView` with your `TabLayout`. If you don't want to go with sticker header `RecyclerView` or something like that, and also want to provide a good experience when user scrolling, this small library is for you.
 
 ## How? 🤨
 
@@ -42,7 +42,7 @@ dependencies {
 
 ## When? 😇
 
-When you have LinearLayoutManager, GridLayoutManager in any orientation (horizontal or vertical) you can use this library.
+When you have `LinearLayoutManager`, `GridLayoutManager` in any orientation (horizontal or vertical) you can use this library.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/iammert/TabScrollAttacher/master/art/1.png">
