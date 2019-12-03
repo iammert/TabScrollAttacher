@@ -24,8 +24,9 @@ val categoryIndexOffsetList = [0,10,30]
 ## Then? 🙄
 
 Then you attach.
-
+```kotlin
 TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList)
+```
 
 ## Where? 🤩
 
