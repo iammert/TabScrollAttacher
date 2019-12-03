@@ -1,0 +1,2 @@
+include ':app', ':tabscrollattacherlib'
+rootProject.name='TabScrollAttacher'
