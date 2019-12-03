@@ -2,10 +2,10 @@
   <img src="https://github.com/iammert/TabScrollAttacher/blob/master/art/artgif.gif">
 </p>
 
-## What?
+## What? 🤔
 It is not a custom TabLayout or RecyclerView. It is just a helper library to attach to your RecyclerView with your TabLayout. If you don't want to go with sticker header RecyclerView or something like that, and also want to provide a good experience when user scrolling, this small library is for you.
 
-## How?
+## How? 🤨
 
 You fetches your product list and their categories. All you need to do is calcualate start index for all categories. Attacher will do the rest.
 
@@ -21,13 +21,13 @@ Then your offset list will be,
 val categoryIndexOffsetList = [0,10,30]
 ```
 
-## Then?
+## Then? 🙄
 
 Then you attach.
 
 TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList)
 
-## Where?
+## Where? 🤩
 
 ```gradle
 maven { url 'https://jitpack.io' }
@@ -39,7 +39,7 @@ dependencies {
 }
 ```
 
-## When?
+## When? 😇
 
 When you have LinearLayoutManager, GridLayoutManager in any orientation (horizontal or vertical) you can use this library.
 
@@ -51,7 +51,7 @@ When you have LinearLayoutManager, GridLayoutManager in any orientation (horizon
   <img src="https://raw.githubusercontent.com/iammert/TabScrollAttacher/master/art/2.png">
 </p>
 
-## Who?
+## Who? 👻
 
 License
 --------
