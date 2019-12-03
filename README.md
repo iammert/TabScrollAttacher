@@ -27,7 +27,7 @@ Then you attach.
 
 TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList)
 
-# Where?
+## Where?
 
 ```gradle
 maven { url 'https://jitpack.io' }
