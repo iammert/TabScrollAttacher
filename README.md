@@ -7,17 +7,19 @@ It is not a custom `TabLayout` or `RecyclerView`. It is just a helper library to
 
 ## How? 🤨
 
-You fetches your product list and their categories. All you need to do is calcualate start index for all categories. Attacher will do the rest.
+You fetch your product list and their categories. All you need to do is calcualate start index for all categories. Attacher will do the rest.
 
 If your backend guy returns this json,
-
+```json
 CategoryA -> 10 items (between 0..10)
 CategoryB -> 20 items (between 10..30)
 CategoryC -> 30 items (between 30..60)
+```
 
 Then your offset list will be,
 
 ```kotlin
+//3 tabs and their offset indexes in total list.
 val categoryIndexOffsetList = [0,10,30]
 ```
 
