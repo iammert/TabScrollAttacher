@@ -32,7 +32,8 @@ class TabScrollAttacher(
                     return
                 }
 
-                if (attacherState == AttacherState.IDLE) {
+                val isScrolling = dx != 0 || dy != 0
+                if (attacherState == AttacherState.IDLE && isScrolling) {
                     attacherState = AttacherState.RECYCLERVIEW_SCROLLING
                 }
 
