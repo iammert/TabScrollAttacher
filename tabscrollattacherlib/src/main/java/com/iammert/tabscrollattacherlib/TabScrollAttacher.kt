@@ -93,6 +93,7 @@ class TabScrollAttacher(
 
     class Configuration {
         internal var scrollMethod: ScrollMethod = ScrollMethod.Smooth
+            private set
 
         fun scrollDirectly() {
             scrollMethod = ScrollMethod.Direct
@@ -101,12 +102,8 @@ class TabScrollAttacher(
         fun scrollSmoothly(limit: Int? = null) {
             scrollMethod = when (limit) {
                 null -> ScrollMethod.Smooth
-                else -> ScrollMethod.LimitedSmooth(DEFAULT_SCROLLING_LIMIT)
+                else -> ScrollMethod.LimitedSmooth(limit)
             }
-        }
-
-        companion object {
-            private const val DEFAULT_SCROLLING_LIMIT = 10
         }
     }
 
