@@ -30,6 +30,17 @@ Then you attach.
 TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList)
 ```
 
+## Configure? 🧑‍🔧
+
+* `scrollDirectly()`: If you don't want to see the scrolling process, use it.
+* `scrollSmoothly()`: If you want to see the flowing items while scrolling, this is for you.
+* `scrollSmoothly(limit = 10)`: If you have a lot of items and smooth scrolling takes too long, you can set a scrolling item limit. It will scroll directly until the `limit` items left, then rest of the items will scroll smoothly.
+```kotlin
+TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList) {
+    // Configuration
+}
+```
+
 ## Where? 🤩
 
 ```gradle

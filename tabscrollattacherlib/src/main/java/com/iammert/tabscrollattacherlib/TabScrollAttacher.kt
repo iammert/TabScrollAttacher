@@ -9,16 +9,20 @@ import com.google.android.material.tabs.TabLayout
 class TabScrollAttacher(
     private val tabLayout: TabLayout,
     private val recyclerView: RecyclerView,
-    private val tabStartIndexOffsets: List<Int>
+    private val tabStartIndexOffsets: List<Int>,
+    configuration: Configuration.() -> Unit = {}
 ) {
 
     private val layoutManager: LinearLayoutManager
 
     private var attacherState = AttacherState.IDLE
 
+    private val config: Configuration
+
     init {
         require(recyclerView.layoutManager is LinearLayoutManager) { "Only LinearLayoutManager is supported." }
         layoutManager = recyclerView.layoutManager as LinearLayoutManager
+        config = Configuration().apply(configuration)
         observeRecyclerViewScroll()
         observeTabLayoutSelection()
     }
@@ -66,7 +70,7 @@ class TabScrollAttacher(
                 if (attacherState != AttacherState.RECYCLERVIEW_SCROLLING) {
                     attacherState = AttacherState.TAB_SELECTED
                     val recyclerViewPosition = tabStartIndexOffsets[tabLayout.selectedTabPosition]
-                    recyclerView.smoothScrollToPosition(recyclerViewPosition)
+                    recyclerView.scrollToPosition(recyclerViewPosition, config.scrollMethod)
                 }
             }
         })
@@ -86,6 +90,22 @@ class TabScrollAttacher(
             }
         }
         return calculatedTabIndex
+    }
+
+    class Configuration {
+        internal var scrollMethod: ScrollMethod = ScrollMethod.Smooth
+            private set
+
+        fun scrollDirectly() {
+            scrollMethod = ScrollMethod.Direct
+        }
+
+        fun scrollSmoothly(limit: Int? = null) {
+            scrollMethod = when (limit) {
+                null -> ScrollMethod.Smooth
+                else -> ScrollMethod.LimitedSmooth(limit)
+            }
+        }
     }
 
 }
