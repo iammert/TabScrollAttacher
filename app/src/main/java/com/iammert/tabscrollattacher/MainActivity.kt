@@ -33,9 +33,14 @@ class MainActivity : AppCompatActivity() {
          * SETUP ATTACHER
          */
         val indexOffsets = getCategoryIndexOffsets(categories)
-        TabScrollAttacher(tabLayout, recyclerView, indexOffsets) {
+        val attacher = TabScrollAttacher(tabLayout, recyclerView, indexOffsets) {
             scrollSmoothly()
         }
+
+        attacher.attach()
+
+        //attacher.detach()
+
     }
 
     /**
