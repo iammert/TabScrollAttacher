@@ -55,7 +55,7 @@ maven { url 'https://jitpack.io' }
 
 ```gradle
 dependencies {
-  compile 'com.github.iammert:TabScrollAttacher:1.0.0'
+  compile 'com.github.iammert:TabScrollAttacher:1.0.2'
 }
 ```
 
