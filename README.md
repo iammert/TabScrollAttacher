@@ -27,7 +27,13 @@ val categoryIndexOffsetList = [0,10,30]
 
 Then you attach.
 ```kotlin
-TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList)
+val attacher = TabScrollAttacher(tabLayout, recyclerView, categoryIndexOffsetList)
+attacher.attach()
+```
+
+Detach when you don't need anymore.
+```kotlin
+attacher.detach()
 ```
 
 ## Configure? 🧑‍🔧
