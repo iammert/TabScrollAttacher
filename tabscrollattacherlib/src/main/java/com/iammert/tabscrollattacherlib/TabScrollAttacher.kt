@@ -1,12 +1,10 @@
 package com.iammert.tabscrollattacherlib
 
-import android.annotation.SuppressLint
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 
-class TabScrollAttacher(
+public class TabScrollAttacher(
     private val tabLayout: TabLayout,
     private val recyclerView: RecyclerView,
     private val tabStartIndexOffsets: List<Int>,
@@ -71,7 +69,7 @@ class TabScrollAttacher(
         config = Configuration().apply(configuration)
     }
 
-    fun detach() {
+    public fun detach() {
         if (isAttached) {
             recyclerView.removeOnScrollListener(scrollListener)
             tabLayout.removeOnTabSelectedListener(tabSelectedListener)
@@ -79,7 +77,7 @@ class TabScrollAttacher(
         }
     }
 
-    fun attach() {
+    public fun attach() {
         if (isAttached.not()) {
             recyclerView.addOnScrollListener(scrollListener)
             tabLayout.addOnTabSelectedListener(tabSelectedListener)
@@ -103,15 +101,15 @@ class TabScrollAttacher(
         return calculatedTabIndex
     }
 
-    class Configuration {
+    public class Configuration {
         internal var scrollMethod: ScrollMethod = ScrollMethod.Smooth
             private set
 
-        fun scrollDirectly() {
+        public fun scrollDirectly() {
             scrollMethod = ScrollMethod.Direct
         }
 
-        fun scrollSmoothly(limit: Int? = null) {
+        public fun scrollSmoothly(limit: Int? = null) {
             scrollMethod = when (limit) {
                 null -> ScrollMethod.Smooth
                 else -> ScrollMethod.LimitedSmooth(limit)

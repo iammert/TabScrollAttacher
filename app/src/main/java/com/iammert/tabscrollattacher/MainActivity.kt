@@ -1,19 +1,21 @@
 package com.iammert.tabscrollattacher
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.iammert.tabscrollattacher.data.Category
 import com.iammert.tabscrollattacher.data.DataFetcher
 import com.iammert.tabscrollattacher.data.Item
+import com.iammert.tabscrollattacher.databinding.ActivityMainBinding
 import com.iammert.tabscrollattacherlib.TabScrollAttacher
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val categories = DataFetcher.fetchData(applicationContext)
 
@@ -22,18 +24,18 @@ class MainActivity : AppCompatActivity() {
          */
         val adapter = ItemListAdapter()
         adapter.setItems(getAllItems(categories))
-        recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
 
         /**
          * Load tabs
          */
-        TabLoader.loadTabs(tabLayout, categories)
+        TabLoader.loadTabs(binding.tabLayout, categories)
 
         /**
          * SETUP ATTACHER
          */
         val indexOffsets = getCategoryIndexOffsets(categories)
-        val attacher = TabScrollAttacher(tabLayout, recyclerView, indexOffsets) {
+        val attacher = TabScrollAttacher(binding.tabLayout, binding.recyclerView, indexOffsets) {
             scrollSmoothly()
         }
 
